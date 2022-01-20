@@ -3,7 +3,7 @@
     <div class="banner">
       <div class="grid" style="row-gap: 0; grid-template-columns: auto auto">
         <h1 class="header-1">Super Safe Blog</h1>
-        <button class="button">+</button>
+        <button class="button" @click="openForm">+</button>
         <h2 class="header-5">The Safest Place for your Thoughts</h2>
         <p>Add your own!</p>
       </div>
@@ -11,7 +11,7 @@
 
     <div class="content">
       <div class="grid">
-        <div class="card">
+        <div class="card" id="add">
           <form action="">
             <div class="card__grid">
               <label for="title" class="form__label">Title</label>
@@ -108,6 +108,15 @@ export default {
           console.log(error);
         });
       document.getElementById(id).style.display = "none";
+    },
+    openForm() {
+      let formDisplay = document.getElementById("add");
+
+      if (formDisplay.style.display == "none") {
+        formDisplay.style.display = "block";
+      } else {
+        formDisplay.style.display = "none";
+      }
     },
   },
 };
@@ -207,5 +216,8 @@ export default {
   }
   &__input {
   }
+}
+#add {
+  display: none;
 }
 </style>

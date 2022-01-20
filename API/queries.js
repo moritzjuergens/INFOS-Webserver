@@ -72,8 +72,8 @@ const getUsers = (request, response) => {
 
   const createPost = (request, response) => {
     const { title, content } = request.body
-  
-    pool.query('INSERT INTO blog.post (authorid, title, content) VALUES (1, $1, $2)', [title, content], (error, results) => {
+
+    pool.query(`INSERT INTO blog.post (title, content) VALUES ('${title}', '${content}')`,(error, results) => {
       if (error) {
         throw error
       }
